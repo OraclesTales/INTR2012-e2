@@ -3,7 +3,7 @@ function preload(){
     list = loadJSON("data.json");
 }
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(400, 800);
 }
 function draw() {
     background("lavender");
@@ -21,11 +21,14 @@ function draw() {
     // circle(mouseX, mouseY, 25);
 
     Object.values (list).map((item, index) => {
-        fill("lightpink");
-        rect(50, index * 30 + 65, item.amount, 10);
+        fill(item.color);
+        rect(50, index * 30 + 65, item.amount / 180 * 300, 10);
         fill (0);
         textSize(12);
         textAlign("left");
         text(item.name, 50, index * 30 + 60);
+        textAlign("right");
+        text(item.icon, 45, index * 30 + 60);
+       
     });
 }
